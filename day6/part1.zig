@@ -9,22 +9,22 @@ pub fn main() !void {
     const data = try file.readToEndAlloc(allocator, 10 * 1024 * 1024);
     defer allocator.free(data);
 
-    var splitter = std.mem.tokenizeAny(u8, data, "\n");
+    var splitter = std.mem.tokenizeScalar(u8, data, '\n');
 
     const l1 = splitter.next().?;
-    var s1 = std.mem.tokenizeAny(u8, l1, " ");
+    var s1 = std.mem.tokenizeScalar(u8, l1, ' ');
 
     const l2 = splitter.next().?;
-    var s2 = std.mem.tokenizeAny(u8, l2, " ");
+    var s2 = std.mem.tokenizeScalar(u8, l2, ' ');
 
     const l3 = splitter.next().?;
-    var s3 = std.mem.tokenizeAny(u8, l3, " ");
+    var s3 = std.mem.tokenizeScalar(u8, l3, ' ');
 
     const l4 = splitter.next().?;
-    var s4 = std.mem.tokenizeAny(u8, l4, " ");
+    var s4 = std.mem.tokenizeScalar(u8, l4, ' ');
 
     const l5 = splitter.next().?;
-    var s5 = std.mem.tokenizeAny(u8, l5, " ");
+    var s5 = std.mem.tokenizeScalar(u8, l5, ' ');
 
     var total: u64 = 0;
 
